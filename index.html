@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+   
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+      
+      <form action="">
+      
+          <h2>Signup</h2>
+       
+      <div class="inputBox">
+          <input type="text" required="required" id="username">
+          <span>Username</span>
+          <i></i>
+      </div>
+      <div class="inputBox">
+          <input type="text" required="required" id="email">
+          <span>email</span>
+          <i></i>
+      </div>
+      <div class="inputBox">
+          <input type="password" required="required" id="password">
+          <span>Password</span>
+          <i></i>
+      </div>
+      <div class="inputBox">
+        <input type="number" required="required" id="year">
+        <span>year</span>
+        <i></i>
+    </div>
+    <div class="inputBox">
+        <input type="text" required="required" id="course">
+        <span>course</span>
+        <i></i>
+    </div>
+      
+      
+      <div class="links">
+          <a href="#">Forgot Password?</a>
+          <!-- <a href="#">Signup</a> -->
+      </div>
+      <input type="submit" value="Login" id="signup">
+
+    </form>
+</div>
+    
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+    import { getDatabase,set,ref} from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDdfwddpIpFLdiNi-15xkMgTRp4eeznkKw",
+      authDomain: "hack-2bcde.firebaseapp.com",
+      databaseURL: "https://hack-2bcde-default-rtdb.firebaseio.com",
+      projectId: "hack-2bcde",
+      storageBucket: "hack-2bcde.appspot.com",
+      messagingSenderId: "243836919454",
+      appId: "1:243836919454:web:86f3515d2baf83bdd7a58f"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database=getDatabase(app);
+    const auth = getAuth();
+
+    signup.addEventListener('click',(e)=>{
+
+        var email =document.getElementById('email').value;
+        var password =document.getElementById('password').value;
+        var username =document.getElementById('username').value;
+        var course =document.getElementById('course').value;
+        var year =document.getElementById('year').value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+
+    set(ref(database,'users/'+ user.uid),{
+        username: username,
+        email:email,
+        course:course,
+        year:year
+    })
+    
+    alert('user created!');
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage);
+    // ..
+  });
+
+    })
+  </script>
+</html>

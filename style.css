@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background:white; */
+    background:
+        url(formbg.jpg);
+    background-size: cover;
+    opacity: 75%;
+}
+
+.box {
+    position: relative;
+    width: 500px;
+    height: 800px;
+    background: black;
+    border-radius: 8px;
+    overflow: hidden;
+
+}
+
+.borderLine {
+    position: absolute;
+    top: 0;
+    inset: 0;
+}
+
+.box form {
+    position: absolute;
+    inset: 4px;
+    background: black;
+    padding: 50px 40px;
+    border-radius: 8px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset;
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    width: 380px;
+    height: 420px;
+
+}
+
+.box form h2 {
+    color: #ffffff;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-left: 90px;
+}
+
+.box form .inputBox {
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.box form .inputBox input {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    color: #ffffff;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 10;
+    color: rgb(7, 6, 6)
+}
+
+.box form .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 20px 0px 10px;
+    pointer-events: none;
+    color: #fff;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+
+.box form .inputBox input:valid~span,
+.box form .inputBox input:focus~span {
+    color: #ffef08;
+    font-size: 0.75em;
+    transform: translateY(-34px);
+}
+
+.box form .inputBox i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.box form .inputBox input:valid~i,
+.box form .inputBox input:focus~i {
+    height: 44px;
+}
+
+.box form .links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box form .links a {
+    margin: 10px 0;
+    font-size: 0.75em;
+    color: #8f8f8f;
+    text-decoration: none;
+
+}
+
+.box form .links a:hover,
+.box form .links a:nth-child(2) {
+    color: #fff;
+}
+
+.box form input[type="submit"] {
+    border: none;
+    outline: none;
+    padding: 9px 25px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px;
+    font-weight: 600;
+    width: 100px;
+    margin-top: 10px;
+}
+
+.box form input[type="submit"]:active {
+    opacity: 0.8;
+}
+
+.box form input[type="submit"]:hover {
+    background-color: rgb(1, 255, 44);
+}
